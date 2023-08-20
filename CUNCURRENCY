@@ -54,8 +54,62 @@ STARVATION - LOW PRIVORITY THREAD AQUIRED LOCK IN  CS AND HIGH PRIORITY ARISES T
 
 
 BUSY WAITING - T1 -> LOCKED IN CS ->  T2 , T3 WAITING -> WASTING THE CPU CYCLE 
+BETTER VERSION OF THTREAD SYNCHRONOZISATION THROUGH NO WASTAGE OF CPU CYCLE IS -
+
+CONDITIONAL 
+CONDITIONAL VARIABLE USE LOCK AND IT HAS TWO METHOD WAITING FOR SIGNAL DUE TO THIS NOT WASTING CPU CYCLE AND SIGNAL
+CONDITIONAL VARIABLE IS BETTER WAY NO VISIBILITY NO WASTAGE OF CPU CYCLE
+
+
+//SEMAPORES -INTEGER VALUE (ALWATS > 0)- MULTIPLE INSTANCES OF SINGLE RESOURCES WITH THEIR MULTIPLE THREAD CAN ENTER THE CS RESOURCE 
+AND WHEN VARIABLE == 0 THEN  WAIT TILL THEY GOT EXECUTED  AND UNTILL THEN NO OTHER THREAD APLLY THEIR LOCKS (NOT ALLOWED TO ENTER)
+LET'S T1 GOT EXECTED THE VAR == 1THEN OTHER THREAD GET THAT RESOURCE FOR EECUTION
+
+N > 2 CONTINUES SEMAPHORES AND N = 1 THEN BINARY SEMAPHONE
 
 
 
 
+//producer and comsumer problem - ek thread producer which produce any data and consumer has a thread who consume 
+jab producer hoto consumer disturbe na kre aake ( producer produce in empty slot na dconsumer consume from filed slot)
+
+//problem
+1.cretical section me race condition na occur ho (they are sinchronised)
+2.producer must not insert when buffer is full 
+3.consumer not pick when buffer is empty
+
+//solution through semaphre 
+*mutex (binary semaphore) - used to accquire look on buffer 
+*empty (counting sema phore) - track empty slot (initial value = n)
+*full (continous semaphore) - track field slot (initial value = 0)
+
+
+//read and write problem - reader > 1 (no issue ) &&&&&&&&& writer > 1 (crete race /inconsistent condition )
+but writer is writing then reader is not allowed to read then also chances of readign inconsistent data , only 1 write in CS ta a time 
+
+//SOLUTION THROUGH SEMAPHORES
+WHAT WE USE
+*MUTEX (BINARY SEMAPHORE)- USE TO INSURE MUTUAL EXCLUSION ,WHEN READ COUNT IS UPDATED , NO. TWO THREADS MODIFY READ COUNT ATA 
+SAME TIME
+*WRT VARIABLE (BINARY SEMAPHORES) - COMMON FOR BOTH READ AND WRITE FOR SINCHRONISED WAY OF DATA ACCESS B/W READ AND WRITE
+*READ COUNT R.C (INTEGER INITIALIZED WITH 0)
+
+
+//CODE FOR READ AND WRITE
+
+
+
+
+
+
+
+
+//DINING PHILOSHPHER PROBLEM-
+
+EACH FORK = BINARY SEMAPHORK (ARR OF INITIAL VALUE 0 , LENTH - NO. OF FOLKS)
+ASSUME PHILOSPHER =  PROCESS &&& FORKS = RESOURCE
+
+ACQUIRE AND RELEASE 
+BUT IF EACH PHILOSPHER GRAB THEIR LEFT OR RIGHT FORK THEN DEADLOCK ACCURE COZ THEY ARE 
+WAITING FIR OTHER FORK TO GET FREE WHICH WON'T HAPPEN 
 
